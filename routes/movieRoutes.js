@@ -6,6 +6,8 @@ const {
   createMovie,
   updateMovie,
   deleteMovie,
+  toggleFavorite,
+  updateRating,
 } = require('../controllers/movieController');
 
 const router = express.Router();
@@ -20,5 +22,7 @@ router.get('/:id', getMovieById);   // GET /api/movies/:id - Ver una película
 router.post('/', createMovie);      // POST /api/movies - Crear película
 router.put('/:id', updateMovie);    // PUT /api/movies/:id - Actualizar película
 router.delete('/:id', deleteMovie); // DELETE /api/movies/:id - Eliminar película
+router.patch('/:id/favorite', toggleFavorite); // PATCH /api/movies/:id/favorite - Toggle favorito
+router.patch('/:id/rating', updateRating); // PATCH /api/movies/:id/rating - Actualizar rating
 
 module.exports = router;
